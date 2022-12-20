@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+DEB_HOST_GNU_TYPE	?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE	?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
+CC="$(DEB_HOST_GNU_TYPE)-gcc"
+else
+CC=gcc
+endif
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	make standalone CC=$(CC)
+
+override_dh_auto_install:
+	make install INSTALL_PREFIX=$(CURDIR)/debian/apg/usr
+	mv $(CURDIR)/debian/apg/usr/bin/apg $(CURDIR)/debian/apg/usr/lib/apg/apg
+	tar --create --file - --directory $(CURDIR)/php/apgonline/ . \
+	  --clamp-mtime --mtime="$(SOURCE_DATE_EPOCH)" \
+	  --mode=u=rwX,go=rX --sort=name | gzip --no-name > php.tar.gz
+	install -D --mode=0644 php.tar.gz $(CURDIR)/debian/apg/usr/share/doc/apg/php.tar.gz
+	rm php.tar.gz
+	install -D --mode=0755 $(CURDIR)/debian/apg.wrapper $(CURDIR)/debian/apg/usr/bin/apg
+	install -D --mode=0644 $(CURDIR)/debian/apg.conf $(CURDIR)/debian/apg/etc/apg.conf

@@ -1,0 +1,14 @@
+Description: Fix path to apg executable
+Origin: vendor
+Forwarded: not-needed
+--- a/php/apgonline/index.php
++++ b/php/apgonline/index.php
+@@ -7,7 +7,7 @@
+  
+   $apg_title = "Automated Password Generator Online" ;
+ 
+-  $generator     = "/usr/local/bin/apg -q" ; # APG location
++  $generator     = "/usr/bin/apg -q" ; # APG location
+   #
+   # Default options
+   #

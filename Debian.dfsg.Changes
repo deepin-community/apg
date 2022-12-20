@@ -1,0 +1,8 @@
+apg 2.2.3.dfsg.1
+
+  * For the Debian package of apg, the files doc/rfc0972.txt and
+    doc/rfc1750.txt were removed from the original upstream tarball since
+    they are not DFSG-free and we thus cannot distribute them from
+    Debian main. You can pull them from any RFC archive.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Tue, 17 Oct 2006 10:00:41 +0000

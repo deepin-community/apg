@@ -1,0 +1,157 @@
+apg (2.2.3.dfsg.1-deepin1) unstable; urgency=medium
+
+  * Rebuild
+
+ -- Deepin Packages Builder <packages@deepin.org>  Fri, 11 Nov 2022 17:55:44 +0800
+
+apg (2.2.3.dfsg.1-5) unstable; urgency=low
+
+  * add warning to package description about FIPS 181 deprecation.
+    Thanks to kwadronaut (Closes: #849109)
+  * patch debian/rules to help with reproduibility.
+    Thanks to Jathan and Vadgrant Cascadian (Closes: #870890)
+  * Standards-Version: 4.1.0 (no changes necessary)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sun, 01 Oct 2017 22:19:40 +0000
+
+apg (2.2.3.dfsg.1-4) unstable; urgency=low
+
+  * add patch from Steve Langasek to use correct compiler (Closes: #734870)
+  * add patch from Daniel Shahaf to help reproducible builds (Closes: #833141)
+  * fix watch file, add dversionmangle
+  * Standards-Version: 3.9.8 (no changes needed)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri, 05 Aug 2016 12:04:46 +0200
+
+apg (2.2.3.dfsg.1-3) unstable; urgency=low
+
+  * Source-format: 3.0 (quilt): add debian/source/{format,local-options}
+    (Closes: #664375)
+  * move from cdbs to debhelper 9
+  * move dpatch patches to quilt, add DEP-3 headers
+  * use gzip --no-name to be reproducible.
+    Thanks to Chris Lamb (Closes: #778215)
+  * fix crash on dictionary starting with whitespace.
+    Thanks to Jonathan Vollebregt (Closes: #759477)
+  * Use getent passwd root instead of grepping /etc/passwd.
+    Thanks to Edmund Grimley Evans (Closes: #783695)
+  * Fix typo in apg.1 man page.
+    Thanks to Jens Kubieziel (Closes: #488034)
+  * fix wrong mode letters in man page.
+    Thanks to Xavier Hienne (Closes: #609837)
+  * multiple improvements to man page.
+    Thanks to Christoph Anton Mitterer (Closes: #764411)
+  * improve apg.conf.
+    Thanks to Christoph Anton Mitterer (Closes: #541631)
+  * apg-wrapper is now a /bin/sh script.
+    Thanks to Troy Benjegerdes (Closes: #763202)
+  * add Homepage field
+  * add Vcs-Git and Vcs-Browser to debian/control
+  * debian/watch comment that upstream web page was unreachable
+  * debian/control remove upstream url from description
+  * debian/control add reference to Ganesan / Davis and upstream abandonment
+  * machine-readable debian/copyright
+  * standards-version 3.9.7 (no other changes necessary)
+  * Makefile: add dpkg-buildflags for hardening
+  * move package to collab-maint
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri, 11 Mar 2016 22:04:02 +0100
+
+apg (2.2.3.dfsg.1-2) unstable; urgency=low
+
+  * apply patch from Kaare Hviid to improve password quality on
+    64bit arches. This should address #412618, but upsteam has not yet
+    commented. Thanks to Sami Liedes for spotting this.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Wed, 20 Jun 2007 17:07:47 +0200
+
+apg (2.2.3.dfsg.1-1) unstable; urgency=low
+
+  * re-pack original sources, removing two RFC files. Closes: #393356
+  * apply patch from Paul Martin. Closes: #337116
+  * Standards-Version: 3.7.2.2 (no changes necessary)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Tue, 17 Oct 2006 10:12:49 +0000
+
+apg (2.2.3-4) unstable; urgency=low
+
+  * add APG_TIPS file to package
+  * remove apgd from SEE ALSO in man pages, we don't ship apgd. Thanks
+    to Dr. Markus Waldeck. Closes: #319592.
+  * disable DEB_AUTO_UPDATE_DEBIAN_CONTROL
+  * Apply patch to read only as much from /dev/random as actually
+    needed. Thanks to Johannes Berg. Closes: #320307
+  * Standards-Version: 3.6.2 (no changes needed).
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sun,  2 Oct 2005 12:45:12 +0000
+
+apg (2.2.3-3) unstable; urgency=low
+
+  * use alternative watchfile syntax to make debian/watch work
+  * rebuild to fix build dependencies. Closes: #297118.
+  * convert repository to svn and debian-only layout.
+  * pull directly patched Makefile to debian/patches/02_Makefile
+  * remove dpatch from build-depends, cdbs now determines that by itself.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sun, 27 Feb 2005 11:37:14 +0000
+
+apg (2.2.3-2) unstable; urgency=low
+
+  * Add upstream URL to description. Closes: #247981.
+  * Add debian/watch which unfortunately had to stay disabled since
+    the upstream web site doesn't allow directory listings.
+  * drop wrong potato backporting comment from debian/rules.
+  * Convert package to cdbs.
+  * Make package use dpatch.
+  * Fix executeable path in index.php. Closes: #273438.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Mon, 20 Dec 2004 12:25:13 +0000
+
+apg (2.2.3-1) unstable; urgency=low
+
+  * new upstream version
+  * set -t both in wrapper and default apg.conf
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Mon, 22 Sep 2003 12:43:10 +0000
+
+apg (2.2.2-1) unstable; urgency=low
+
+  * new upstream version, this time using pristine sources again
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Mon,  1 Sep 2003 14:41:05 +0000
+
+apg (2.2.0-1) unstable; urgency=low
+
+  * new upstream version
+  * .orig.tar.gz is not pristine since upstream tarball contains
+    read-only files and directories which debian tools cannot handle.
+  * Standards-Version: 3.6.1
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Tue, 26 Aug 2003 07:30:43 +0000
+
+apg (2.1.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #162073).
+  * New upstream relases fixes manpage spelling errors (Closes: #126449).
+  * Standards-Version.
+  * Move to main. Package has been in non-US because it uses CAST and
+    SHA-1. Both of these algorithms are in libgcrypt1 as well, which is in
+    main, so apg should go into main as well.
+  * remove build-dependency on awk.
+  * activate SHA
+  * change default parameters from -M ncl to -M NCL
+  * wrapper doesn't barf any more if /etc/apg.conf isn't present
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Tue, 24 Sep 2002 15:13:13 +0000
+
+apg (2.0.0b0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sun,  2 Sep 2001 19:51:55 +0000
+
+apg (1.2.13-1) unstable; urgency=low
+
+  * Initial Release. (closes: #92861)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri,  1 Jun 2001 15:13:54 +0000
